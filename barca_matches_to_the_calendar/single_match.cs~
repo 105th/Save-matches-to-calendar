@@ -1,0 +1,45 @@
+﻿using System;
+
+namespace barca_matches_to_the_calendar
+{
+	/// <summary>
+	/// Класс одного матча.
+	/// </summary>
+	public class SingleMatch
+	{
+		/// <summary>
+		/// Дата и время начала матча.
+		/// </summary>
+		DateTime _startTime;
+
+		/// <summary>
+		/// Турнир.
+		/// </summary>
+		string _tournament;
+
+		/// <summary>
+		/// Соперник.
+		/// </summary>
+		string _rival;
+
+		/// <summary>
+		/// Место (в гостях/дома)
+		/// </summary>
+		string _place;
+
+		/// <summary>
+		/// Создает объект класса SingleMatch
+		///  <see cref="barca_matches_to_the_calendar.SingleMatch"/> class.
+		/// </summary>
+		public SingleMatch()
+		{
+			_startTime = null;
+			_tournament = null;
+			_rival = null;
+			_place = null;
+		}
+
+		public SingleMatch(DateTime)
+	}
+}
+

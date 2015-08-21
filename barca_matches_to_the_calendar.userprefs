@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="barca_matches_to_the_calendar/barca_matches_to_the_calendar.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="barca_matches_to_the_calendar/Serializer.cs">
+    <Files>
+      <File FileName="barca_matches_to_the_calendar/Program.cs" Line="57" Column="5" />
+      <File FileName="barca_matches_to_the_calendar/Serializer.cs" Line="25" Column="147" />
+      <File FileName="barca_matches_to_the_calendar/SingleMatch.cs" Line="56" Column="57" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,6 @@
+/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/barca_matches_to_the_calendar/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/barca_matches_to_the_calendar/bin/Debug/barca_matches_to_the_calendar.exe.mdb
+/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/barca_matches_to_the_calendar/bin/Debug/barca_matches_to_the_calendar.exe
+/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/barca_matches_to_the_calendar/obj/x86/Debug/barca_matches_to_the_calendar.exe
+/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/barca_matches_to_the_calendar/obj/x86/Debug/barca_matches_to_the_calendar.exe.mdb
+/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/barca_matches_to_the_calendar/bin/Debug/HtmlAgilityPack.dll
