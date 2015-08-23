@@ -2,6 +2,8 @@
 using HtmlAgilityPack;
 using System.Collections.Generic;
 using System.Linq;
+using DDay.iCal;
+using DDay.iCal.Serialization.iCalendar;
 
 namespace barca_matches_to_the_calendar
 {
@@ -17,16 +19,19 @@ namespace barca_matches_to_the_calendar
 			// Загружаем html-документ с указанного сайта.
 			HtmlDocument htmlDoc = WebGet.Load(WebAddress);
 
-			// Парсим название клуба.
-			string NameFC = htmlDoc.DocumentNode.SelectSingleNode(".//*[@class='titleH1']").FirstChild.InnerText.Replace("\n", "");
+			// Сюда будем сохранять матчи
+			Matches MatchesFC = new Matches();
 
+			// Парсим название клуба (удаляя символ возрата каретки)
+			MatchesFC.NameFC = htmlDoc.DocumentNode.
+				SelectSingleNode(".//*[@class='titleH1']").
+				FirstChild.InnerText.Replace("\r\n", "");
+			
+			
 			// Находим в этом документе таблицу с датами матчей с помощью XPath-выражений.
 			HtmlNode Table = htmlDoc.DocumentNode.SelectSingleNode(".//*[@class='stat-table']/tbody");
 			// Из полученной таблицы выделяем все элементы-строки с тегом "tr".
 			IEnumerable<HtmlNode> rows = Table.Descendants().Where(x => x.Name == "tr");
-
-			// Создаём лист матчей, который затем сохраним.
-			List<SingleMatch> matches = new List<SingleMatch>();
 
 			foreach (var row in rows)
 			{
@@ -42,23 +47,39 @@ namespace barca_matches_to_the_calendar
 				match.StartTime = time;
 
 				// Остальные поля просто заполняем, зная нужный нам индекс.
-				match.NameFC = NameFC;
 				match.Tournament = cells[3].InnerText;
 				// В ячейке "Соперник" нужно удалить символ неразрывного пробела ("&nbsp")
 				match.Rival = cells[5].InnerText.Replace("&nbsp;", "");
 				match.Place = cells[6].InnerText;
 
 				// Добавляем одиночный матч в лист матчей.
-				matches.Add(match);
+				MatchesFC.ListMatches.Add(match);
 			}
+
+			// Создаём календарь, в который будем сохранять матчи.
+			iCalendar CalForMatches = new iCalendar
+			{
+				Method = "PUBLISH",
+				Version = "2.0"
+			};
+			CalForMatches.Name = "Матчи ФК " + MatchesFC.NameFC;
 
 			// Сохраняем полученный результат.
-			foreach (var match in matches)
+			foreach (SingleMatch match in MatchesFC.ListMatches)
 			{
-				Serializer.Serialize("unnamed.xml", match, false);
-				Console.WriteLine("Все матчи записаны в файл успешно!");
+				Event newMatch = CalForMatches.Create<Event>();
+
+				newMatch.DTStart = new iCalDateTime(match.StartTime);
+				newMatch.Duration = new TimeSpan(2, 30, 0);
+				newMatch.Summary = string.Format("{0} : {1}", MatchesFC.NameFC, match.Rival);
+				newMatch.Description = string.Format("{0}. {1} : {2}, {3}",
+					match.Tournament, MatchesFC.NameFC, match.Rival, match.Place);
 			}
 
+			// Сериализуем наш календарь.
+			iCalendarSerializer serializer = new iCalendarSerializer();
+			serializer.Serialize(CalForMatches, MatchesFC.NameFC + ".ics");
+			Console.WriteLine("Календарь матчей сохранён успешно" + Environment.NewLine);
 
 			return;
 		}

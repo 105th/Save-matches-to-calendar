@@ -1,14 +1,24 @@
 ﻿<Properties StartupItem="barca_matches_to_the_calendar/barca_matches_to_the_calendar.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="barca_matches_to_the_calendar/Serializer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="barca_matches_to_the_calendar/Matches.cs">
     <Files>
-      <File FileName="barca_matches_to_the_calendar/Program.cs" Line="57" Column="5" />
-      <File FileName="barca_matches_to_the_calendar/Serializer.cs" Line="25" Column="147" />
-      <File FileName="barca_matches_to_the_calendar/SingleMatch.cs" Line="56" Column="57" />
+      <File FileName="barca_matches_to_the_calendar/Program.cs" Line="23" Column="1" />
+      <File FileName="barca_matches_to_the_calendar/SingleMatch.cs" Line="121" Column="62" />
+      <File FileName="barca_matches_to_the_calendar/Matches.cs" Line="24" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Program.cs" line="60" column="37" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Program.cs" line="59" column="1" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Program.cs" line="64" column="1" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Program.cs" line="23" column="37" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Program.cs" line="42" column="1" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Program.cs" line="24" column="1" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Program.cs" line="27" column="1" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Matches.cs" line="23" column="5" />
+      <Breakpoint file="/Users/dima/Dropbox/Code/C# .Net/Projects/barca_matches_to_the_calendar/Save-matches-to-calendar/barca_matches_to_the_calendar/Matches.cs" line="24" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

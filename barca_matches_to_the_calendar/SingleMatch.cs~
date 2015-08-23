@@ -9,30 +9,46 @@ namespace barca_matches_to_the_calendar
 	[Serializable]
 	public class SingleMatch
 	{
-		/// <summary>
-		/// Дата и время начала матча.
-		/// </summary>
-		DateTime _startTime;
 
 		/// <summary>
-		/// Турнир.
+		/// Дата времени начала матча.
 		/// </summary>
-		string _tournament;
+		/// <value>Время начала матча типа <see cref="DateTime"/>.</value>
+		public DateTime StartTime
+		{
+			get;
+			set;
+		}
 
 		/// <summary>
-		/// Название футбольного клуба.
+		/// Название турнира.
 		/// </summary>
-		string _nameFC;
+		/// <value>Название турнира.</value>
+		public string Tournament
+		{
+			get;
+			set;
+		}
 
 		/// <summary>
-		/// Соперник.
+		/// Наименование ФК-соперника.
 		/// </summary>
-		string _rival;
+		/// <value>Наименование ФК - соперника.</value>
+		public string Rival
+		{
+			get;
+			set;
+		}
 
 		/// <summary>
-		/// Место (в гостях/дома)
+		/// Место матча (в гостях/дома).
 		/// </summary>
-		string _place;
+		/// <value>Место ("В гостях"/"Дома").</value>
+		public string Place
+		{
+			get;
+			set;
+		}
 
 		/// <summary>
 		/// Создает объект класса SingleMatch
@@ -40,9 +56,9 @@ namespace barca_matches_to_the_calendar
 		/// </summary>
 		public SingleMatch()
 		{
-			_tournament = null;
-			_rival = null;
-			_place = null;
+			Tournament = null;
+			Rival = null;
+			Place = null;
 		}
 
 
@@ -71,101 +87,17 @@ namespace barca_matches_to_the_calendar
 			if (string.IsNullOrWhiteSpace(place))
 				throw new ArgumentException("Параметр Место не может быть пустым");
 
-			_startTime = startTime;
-			_tournament = tournament;
-			_rival = rival;
-			_place = place;
+			StartTime = startTime;
+			Tournament = tournament;
+			Rival = rival;
+			Place = place;
 		}
 
-		/// <summary>
-		/// Свойство для присваивания или выдачи время начала матча.
-		/// </summary>
-		/// <value>Время начала матча типа <see cref="DateTime"/>.</value>
-		[XmlElement("Время начала матча")]
-		public DateTime StartTime
-		{
-			get
-			{
-				return _startTime;
-			}
-			set
-			{
-				_startTime = value;
-			}
-		}
-
-		/// <summary>
-		/// Свойство для присваивания или выдачи названия турнира.
-		/// </summary>
-		/// <value>Название турнира.</value>
-		[XmlElement("Турнир")]
-		public string Tournament
-		{
-			get
-			{
-				return _tournament;
-			}
-			set
-			{
-				_tournament = value;
-			}
-		}
-
-		/// <summary>
-		/// Название футбольного клуба.
-		/// </summary>
-		/// <value>Название футбольного клуба.</value>
-		[XmlElement("Название ФК")]
-		public string NameFC
-		{
-			get
-			{
-				return _nameFC;
-			}
-			set
-			{
-				_nameFC = value;
-			}
-		}
-
-		/// <summary>
-		/// Свойство для присваивания или выдачи соперника.
-		/// </summary>
-		/// <value>Наименование ФК - соперника.</value>
-		[XmlElement("Соперник")]
-		public string Rival
-		{
-			get
-			{
-				return _rival;
-			}
-			set
-			{
-				_rival = value;
-			}
-		}
-
-		/// <summary>
-		/// Свойство для присваивания или выдачи места (в гостях/дома).
-		/// </summary>
-		/// <value>Место (в гостях/дома).</value>
-		[XmlElement("Место")]
-		public string Place
-		{
-			get
-			{
-				return _place;
-			}
-			set
-			{
-				_place = value;
-			}
-		}
 
 		public override string ToString()
 		{
-			return string.Format("Время начала матча={0}, турнир={1}, соперник={2}, место={3}]",
-				_startTime, _tournament, _rival, _place);
+			return string.Format("Время начала матча={0}, турнир={1}, соперник={2}, место={3}",
+				StartTime, Tournament, Rival, Place);
 		}
 	}
 }
