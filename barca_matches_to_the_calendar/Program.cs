@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DDay.iCal;
 using DDay.iCal.Serialization.iCalendar;
+using System.Security.Cryptography;
 
 namespace barca_matches_to_the_calendar
 {
@@ -62,7 +63,12 @@ namespace barca_matches_to_the_calendar
 				Method = "PUBLISH",
 				Version = "2.0"
 			};
-			CalForMatches.Name = "Матчи ФК " + MatchesFC.NameFC;
+			// Эти настройки нужны для календаря Mac, чтобы он был неотличим от 
+			// оригинального календаря (т.е. созданного внутри Mac Calendar)
+			CalForMatches.AddProperty("CALSCALE", "GREGORIAN");
+			CalForMatches.AddProperty("X-WR-CALNAME", "Mатчи ФК " + MatchesFC.NameFC);
+			CalForMatches.AddProperty("X-WR-TIMEZONE", "Europe/Moscow");
+			CalForMatches.AddLocalTimeZone();
 
 			// Сохраняем полученный результат.
 			foreach (SingleMatch match in MatchesFC.ListMatches)
@@ -74,6 +80,13 @@ namespace barca_matches_to_the_calendar
 				newMatch.Summary = string.Format("{0} : {1}", MatchesFC.NameFC, match.Rival);
 				newMatch.Description = string.Format("{0}. {1} : {2}, {3}",
 					match.Tournament, MatchesFC.NameFC, match.Rival, match.Place);
+				
+				// Добавим напоминание к матчам, чтобы не забыть о них
+				Alarm alarm = new Alarm();
+				alarm.Trigger = new Trigger(TimeSpan.FromMinutes(-10));
+				alarm.Description = "Напоминание о событии";
+				alarm.AddProperty("ACTION", "DISPLAY");
+				newMatch.Alarms.Add(alarm);
 			}
 
 			// Сериализуем наш календарь.

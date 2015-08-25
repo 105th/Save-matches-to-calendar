@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Xml.Serialization;
 
 namespace barca_matches_to_the_calendar
 {
 	/// <summary>
 	/// Класс одного матча.
 	/// </summary>
-	[Serializable]
 	public class SingleMatch
 	{
 
@@ -56,6 +54,7 @@ namespace barca_matches_to_the_calendar
 		/// </summary>
 		public SingleMatch()
 		{
+			StartTime = new DateTime();
 			Tournament = null;
 			Rival = null;
 			Place = null;
@@ -94,6 +93,14 @@ namespace barca_matches_to_the_calendar
 		}
 
 
+		/// <summary>
+		/// Возращает a <see cref="System.String"/>, которая является текстовым
+		/// представлением  <see cref="barca_matches_to_the_calendar.SingleMatch"/>.
+		/// </summary>
+		/// <returns>
+		/// Возращает a <see cref="System.String"/>, которая является текстовым
+		/// представлением  <see cref="barca_matches_to_the_calendar.SingleMatch"/>.
+		/// </returns>
 		public override string ToString()
 		{
 			return string.Format("Время начала матча={0}, турнир={1}, соперник={2}, место={3}",
